@@ -1,0 +1,21 @@
+Schema::create('series', function (Blueprint $table) {
+            $table->BigIncrements('id');
+            $table->foreign('author_id')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->mediumText('title');
+            $table->longText('content');
+            $table->longText('acteurs');
+            $table->string('url', 200)->unique('url_UNIQUE');
+            $table->text('tags')->nullable();
+            $table->datetime('date')->useCurrent();
+            $table->string('status', 45)->default('draft');
+            $table->timestamps();
+
+
+
+Schema::create('contact', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->VARCHAR(255)('name');
+            $table->VARCHAR(255)('email');
+            $table->MEDIUMTEXT('name');
+            $table->DATETIME('date');
+            
